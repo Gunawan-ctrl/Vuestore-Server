@@ -14,7 +14,9 @@ exports.findAll = (req, res) => {
 };
 
 exports.findOne = (req, res) => {
-  Product.findOne()
+  Product.findOne({
+    code: req.params.id,
+  })
     .then((result) => {
       res.send(result);
     })
