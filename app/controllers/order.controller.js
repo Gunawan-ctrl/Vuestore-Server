@@ -48,7 +48,7 @@ exports.addToCart = (req, res) => {
     })
     .catch((err) => {
       res.status(409).send({
-        message: err.message,
+        message: err.message || "some error while add to cart",
       });
     });
 };
