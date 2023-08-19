@@ -1,10 +1,10 @@
 module.exports = (app) => {
-  const Orders = require("../controllers/order.controller");
-  const router = require("express").Router();
+  const order = require("../controllers/order.controller");
+  let router = require("express").Router();
 
-  router.get("/user/:id", Orders.findOrder);
-  router.post("/user/:id", Orders.addToCart);
-  router.delete("/user/:id/product/:product", Orders.removeFromCart);
+  router.get("/user/:id", order.findOrder);
+  router.post("/user/:id", order.addToCart);
+  router.delete("/user/:id/product/:product", order.removeFromCart);
 
   app.use("/api/orders", router);
 };

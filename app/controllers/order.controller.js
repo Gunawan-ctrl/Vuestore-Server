@@ -55,7 +55,7 @@ exports.addToCart = (req, res) => {
 
 exports.removeFromCart = (req, res) => {
   const id = Number(req.params.id);
-  const productCode = String(req.params.product);
+  const productCode = String(req.params.code);
 
   Order.updateOne(
     {
@@ -72,7 +72,7 @@ exports.removeFromCart = (req, res) => {
     })
     .catch((err) => {
       res.status(409).send({
-        message: err.message,
+        message: err.message || "some error while add to cart",
       });
     });
 };
